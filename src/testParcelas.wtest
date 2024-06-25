@@ -1,0 +1,35 @@
+import semillas.*
+import parcelas.*
+
+describe "funcionamiento de parcela"{
+	const parcela = new Parcela(ancho = 20, largo = 1, horasDeSolQueRecibe = 8)	
+	const planta1 = new Soja(anioObtencion = 0, altura = 2)
+	
+	test "superficie de parcela es 20mc" {
+		assert.equals(20,parcela.superficie())
+	}
+	test "parcela tolera 4 plantas maximas" {
+		assert.equals(4,parcela.plantasMaximas())
+	}
+	test "se pueden plantar 4 planta1"{
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		assert.equals(4,parcela.cantidadPlantas())
+	}
+	test "no se pueden plantar 5 planta1"{
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		assert.throwsExceptionWithMessage("parcela completa", {parcela.plantar(planta1)})
+	}
+	test "parcela no tiene complicaciones"{
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		parcela.plantar(planta1)
+		assert.notThat(parcela.tieneComplicaciones())
+	}
+}

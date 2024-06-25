@@ -1,0 +1,71 @@
+import semillas.*
+
+describe "funcionamiento de menta"{
+	const menta1 = new Menta(anioObtencion = 0, altura = 1) 
+	const menta2 = new Menta(anioObtencion = 0, altura = 0.3) 
+	
+	test "menta1 da semillas" {
+		assert.that(menta1.daSemillas())
+	}
+	test "menta1 ocupa 3mc" {
+		assert.equals(3,menta1.espacioQueOcupa())
+	}
+	test "menta2 no da semillas" {
+		assert.notThat(menta2.daSemillas())
+	}
+	test "menta2 ocupa 0.9mc" {
+		assert.equals(0.9,menta2.espacioQueOcupa())
+	}	
+}
+
+describe "funcionamiento de Soja"{
+	const soja = new Soja(anioObtencion = 2009, altura = 0.6)
+	
+	test "soja tolera 7 horas de sol" {
+		assert.equals(7,soja.horasDeSolQueTolera())
+	}
+	test "soja ocupa 0.3mc" {
+		assert.equals(0.3,soja.espacioQueOcupa())
+	}
+	test "soja no da semillas"{
+		assert.notThat(soja.daSemillas())
+	}
+}
+
+describe "funcionamiento de Quinoa"{
+	const quinoa1 = new Quinoa(horasDeSolQueTolera = 12, anioObtencion = 2010, altura = 2)
+	const quinoa2 = new Quinoa(horasDeSolQueTolera = 9, anioObtencion = 2001, altura = 2)
+	
+	test "quinoa1 da semillas"{
+		assert.that(quinoa1.daSemillas())
+	}
+	test "quinoa2 da semillas"{
+		assert.that(quinoa2.daSemillas())
+	}
+}
+
+describe "funcionamiento de MentaHierbaBuena"{
+	const mentaHB = new MentaHierbaBuena(anioObtencion = 0, altura = 1)
+	
+	test "mentaHB ocupa 6mc" {
+		assert.equals(6,mentaHB.espacioQueOcupa())
+	}	
+}
+
+describe "funcionamiento de SojaTransgenica"{
+	const sojaTransgenica = new SojaTransgenica(anioObtencion = 2009, altura = 0.6)
+	
+	test "sojaTransgenica no da semillas"{
+		assert.notThat(sojaTransgenica.daSemillas())
+	}
+}
+
+
+
+
+
+
+
+
+
+
